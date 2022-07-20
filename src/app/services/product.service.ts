@@ -1,8 +1,9 @@
 import { faker } from '@faker-js/faker';
-import { Product } from '../../Interfaces/Product';
+import { Product } from '../models/Product';
 import { CreateProductDto, UpdateProductDto } from '../dtos/product.dto';
+import { ProductService } from '../models/Product-service.model';
 
-export class ProductMemoryService {
+export class ProductMemoryService implements ProductService {
   private products: Product[] = [];
 
   create(data: CreateProductDto): Product {
@@ -17,6 +18,10 @@ export class ProductMemoryService {
     };
 
     return this.add(newProduct);
+  }
+
+  getAll() {
+    return this.products;
   }
 
   add(product: Product) {

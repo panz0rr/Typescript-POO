@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Product } from './Interfaces/Product';
+import { Product } from './app/models/Product';
 
 (async () => {
 
